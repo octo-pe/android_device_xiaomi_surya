@@ -12,6 +12,16 @@
      limitations under the License.
 -->
 <resources>
+    <!-- Generic texts -->
+    <string name="disabled">Выключено</string>
+
+     <!-- Device settings -->
+    <string name="device_settings_title">Xiaomi Parts</string>
+    <string name="device_settings_summary">Дополнительные настройки</string>
+    <string name="audio_title">Аудио и вибрация</string>
+    <string name="display_title">Экран</string>
+    <string name="performance_title">Производительность</string>
+
     <!-- Ambient settings -->
     <string name="ambient_enable">Использовать Ambient Display</string>
     <string name="doze_brightness_title">Яркость всегда включённого экрана</string>
@@ -89,4 +99,12 @@
     <string name="haptic_level_title">Уровень</string>
     <string name="haptic_level_summary">Интенсивность вибрации</string>
     <string name="haptic_level_summary_incompatible">Функция не поддерживается</string>
+
+    <!-- LCD Features -->
+    <string name="lcd_features_title">LCD features</string>
+    <string name="lcd_features_summary">Режим повышенной яркости(HBM), CABC</string>
+    <string name="lcd_hbm_title">Режим повышенной яркости(HBM)</string>
+    <string name="lcd_hbm_tile_title">HBM</string>
+    <string name="lcd_cabc_title">CABC</string>
+    <string name="lcd_features_info">Режим повышенной яркости (HBM) повышает максимальную яркость экрана. Увеличивает энергопотребление.\n\nCABC (Content Adaptive Backlight Control) изменяет яркость экрана и подстветки основываясь на отоброжаемой информации, чтобы снизить энергопотребление.</string>
 </resources>
