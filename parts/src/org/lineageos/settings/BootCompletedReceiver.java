@@ -24,6 +24,7 @@ import android.util.Log;
 
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.dirac.DiracUtils;
+import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.haptic.HapticUtils;
 
@@ -43,6 +44,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Dirac
         DiracUtils.initialize(context);
+
+        // Refresh Rate
+        RefreshUtils.startService(context);
 
         // Thermal Profiles
         ThermalUtils.startService(context);
