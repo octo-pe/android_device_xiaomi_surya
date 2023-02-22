@@ -32,6 +32,9 @@
 # IR
 /dev/spidev0.1                                                       u:object_r:spidev_device:s0
 
+# Haptic
+/sys/devices/platform/soc/884000.i2c/i2c-3/3-005a/ulevel             u:object_r:sysfs_vibrator:s0
+
 # Persist subsystem
 /mnt/vendor/persist/subsys(/.*)?                                     u:object_r:persist_subsys_file:s0
 
