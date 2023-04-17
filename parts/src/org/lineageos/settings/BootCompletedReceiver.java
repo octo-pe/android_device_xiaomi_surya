@@ -26,7 +26,6 @@ import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.haptic.HapticUtils;
-import org.lineageos.settings.refreshrate.RefreshUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
@@ -50,6 +49,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Haptic
         HapticUtils.restoreLevel(context);
-        RefreshUtils.startService(context);
     }
 }
