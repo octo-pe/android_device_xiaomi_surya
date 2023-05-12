@@ -27,10 +27,6 @@ import android.util.Log;
 import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.refreshrate.RefreshUtils;
-import org.lineageos.settings.thermal.ThermalUtils;
-import org.lineageos.settings.haptic.HapticUtils;
-import org.lineageos.settings.display.KcalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
@@ -47,18 +43,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Doze
         DozeUtils.onBootCompleted(context);
-
-        // Refresh Rate
-        RefreshUtils.startService(context);
-
-        // Thermal Profiles
-        ThermalUtils.startService(context);
-
-        // Haptic
-        HapticUtils.restoreLevel(context);
-
-        // Kcal
-        if (KcalUtils.isKcalSupported())
-            KcalUtils.writeCurrentSettings(sharedPrefs);
     }
 }
