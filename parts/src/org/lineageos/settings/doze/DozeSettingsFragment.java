@@ -72,18 +72,16 @@ public class DozeSettingsFragment extends PreferenceFragment
         mAlwaysOnDisplayPreference.setChecked(DozeUtils.isAlwaysOnEnabled(getActivity()));
         mAlwaysOnDisplayPreference.setOnPreferenceChangeListener(this);
 
-        mDozeBrightnessPreference = (ListPreference) findPreference(DozeUtils.DOZE_BRIGHTNESS_KEY);
-        mDozeBrightnessPreference.setEnabled(
-                dozeEnabled && DozeUtils.isAlwaysOnEnabled(getActivity()));
-        mDozeBrightnessPreference.setOnPreferenceChangeListener(this);
+        PreferenceCategory gesturesCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(
+                        DozeUtils.CATEG_GESTURES);
+        PreferenceCategory pickupSensorCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(
+                        DozeUtils.CATEG_PICKUP_SENSOR);
 
         mWakeOnGesturePreference = (SwitchPreference) findPreference(DozeUtils.WAKE_ON_GESTURE_KEY);
         mWakeOnGesturePreference.setEnabled(dozeEnabled);
         mWakeOnGesturePreference.setOnPreferenceChangeListener(this);
-
-        PreferenceCategory pickupSensorCategory =
-                (PreferenceCategory) getPreferenceScreen().findPreference(
-                        DozeUtils.CATEG_PICKUP_SENSOR);
 
         mPickUpPreference = (SwitchPreference) findPreference(DozeUtils.GESTURE_PICK_UP_KEY);
         mPickUpPreference.setEnabled(dozeEnabled);
@@ -94,12 +92,7 @@ public class DozeSettingsFragment extends PreferenceFragment
             getPreferenceScreen().removePreference(mAlwaysOnDisplayPreference);
             getPreferenceScreen().removePreference(mDozeBrightnessPreference);
         } else {
-            if (!FileUtils.isFileWritable(DozeUtils.DOZE_MODE_PATH)) {
-                getPreferenceScreen().removePreference(mDozeBrightnessPreference);
-            } else {
-                DozeUtils.updateDozeBrightnessIcon(getContext(), mDozeBrightnessPreference);
-            }
-            mWakeOnGesturePreference.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
+            gesturesCategory.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
             pickupSensorCategory.setDependency(DozeUtils.ALWAYS_ON_DISPLAY);
         }
     }
